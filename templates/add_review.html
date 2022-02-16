@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} Authors {% endblock %}
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add review </h3>
+    <div class="form-group">
+        <label for="user_id"> You are ...</label>
+        <select name="u_id" class="selectpicker form-control">
+            <br>
+            {% for u in users %}
+              <option value={{u.id}}>
+                  {{ u.first_name }} {{ u.last_name }}
+              </option>
+            {%endfor%}
+            </select>
+        <label for="book_id"> Book </label>
+        <select name="b_id" class="selectpicker form-control">
+            <br>
+            {% for b in books %}
+              <option value={{b.id}}>
+                  {{ b.title }}
+              </option>
+            {%endfor%}
+            </select>
+
+    </div>
+    <label for="rating"> Rating </label>
+    <input type="number" min="1" max="10" class="form-control" id="rating" name="rating">
+    <br>
+    <button type="submit" class="btn btn-primary">Leave feedback</button>
+
+</form>
+{% endblock %}

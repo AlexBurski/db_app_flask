@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Books {% endblock %}
+{% block content %}
+
+    <h3 align="center"> Books we have </h3>
+<ul class="list-group list-group-flush" id="books">
+    {% for b in books %}
+    <li class="list-group-item">
+        <h2>{{ b.title.title() }}</h2>
+        {{ b.number_of_pages }} pages. Written in {{b.release_date.split('-')[0]}}
+        <br><em>-{{b.short_description}}</em></br>
+        Created by <p style="font-style:italic">{{authors.get(b.author_id).first_name}}
+        {{authors.get(b.author_id).last_name}}</p>
+
+        <div class="aler alert-danger alter-dismissable dark" >
+                <button type="button" class="close" onClick="deleteBook({{ b.id }})">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

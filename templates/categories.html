@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add a new category </h3>
+    <div class="form-group">
+        <label for="category"> Add new category </label>
+        <input class="form-control" id="category" name="category" placeholder="Type here">
+
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary">Add category</button>
+
+</form>
+  <br>
+
+<h3 align="center"> Categories </h3>
+<ul class="list-group list-group-flush" id="category_l">
+    {% for c in categories %}
+    <li class="list-group-item">-- {{ c.name.title() }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

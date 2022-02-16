@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Authors {% endblock %}
+
+{% block content %}
+    <h3 align="center"> Authors </h3>
+    <ul class="list-group list-group-flush" id="authors">
+        {% for author in authors %}
+    <li class="list-group-item">
+
+        <h5>{{author.first_name.title() }} {{author.last_name.title() }}</h5> from  {{nation.get(author.nationality_id).country}}
+        <div class="aler alert-danger alter-dismissable dark" >
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
