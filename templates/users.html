@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Users {% endblock %}
+
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add user to our base </h3>
+    <div class="form-group">
+        <label for="name"> First name of the person </label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Type here">
+        <label for="surname"> Second name of the person </label>
+        <input type="text" class="form-control" id="surname" name="surname" placeholder="Type here">
+        <label for="birthdate"> Birthdate(only a year) </label>
+        <input type="number" class="form-control" id="birthdate" name="birthdate" placeholder="Type here">
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary"> Add person </button>
+
+</form>
+    <br>
+    <h3 align="center"> Users </h3>
+    <ul class="list-group list-group-flush" id="user">
+    {% for u in users %}
+    <li class="list-group-item">
+        <h4>{{u.first_name }} {{u.last_name }} </h4>{{now- u.birth_date}} years old
+
+        <div class="aler alert-danger alter-dismissable dark" >
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

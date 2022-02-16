@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Authors {% endblock %}
+
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add author to our base </h3>
+    <div class="form-group">
+        <br>
+        <label for="name"> First name of the author </label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Type here">
+        <br>
+        <label for="surname"> Second name of the author </label>
+        <input type="text" class="form-control" id="surname" name="surname" placeholder="Type here">
+
+        <br>
+        <label for=author_id"> Nationality </label>
+        <select name="a_id" class="selectpicker form-control">
+            <br>
+            {% for country in countries %}
+              <option value={{country.id}}>
+                  {{ country.country.title() }}
+              </option>
+            {%endfor%}
+            </select>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary">Add author</button>
+
+</form>
+{% endblock %}

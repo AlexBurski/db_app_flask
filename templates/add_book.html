@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Books {% endblock %}
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add new book to our base </h3>
+    <div class="form-group">
+        <label for="book"> Name of the book </label>
+        <input type="text" class="form-control" id="book" name="book" placeholder="Type here">
+        <br>
+        <label for="pages"> Number of pages</label>
+        <input type="text" class="form-control" id="pages" name="pages" placeholder="Type here">
+        <br>
+        <label for="short_descr"> Short description</label>
+        <input type="text" class="form-control" id="sh_descr" name="sh_descr" placeholder="Type here">
+        <br>
+        <label for=auth_i"> Author </label>
+        <select name="auth_id" class="selectpicker form-control">
+            {% for author in authors %}
+              <option value={{author.id}}>
+                  {{ author.first_name }} {{ author.last_name }}
+              </option>
+            {%endfor%}
+            </select>
+        <br>
+        <label for="release"> Release year </label>
+        <input type="number"  class="form-control" id="release" name="release">
+        <br>
+        <p>Choose the category:</p>
+<div>
+  {%for cat in categories%}
+    <input type="checkbox" id="option" name="category" value=cat.id
+         checked>
+    <label for="option">{{cat.name.title()}}</label>
+    {%endfor%}
+
+</div>
+
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Add book</button>
+</form>
+
+{% endblock %}

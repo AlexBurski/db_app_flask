@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} Nations {% endblock %}
+
+{% block content %} <form method="POST">
+    <br>
+    <h3 align="center"> Add a new country where an author lived </h3>
+    <div class="form-group">
+        <label for="nations"> Author's country </label>
+        <input type="nations" class="form-control" id="nations" name="nations" placeholder="Type here">
+
+    </div>
+
+    <br>
+    <button type="input" class="btn btn-primary">Add country</button>
+
+</form>
+<form method="GET">
+<h3 align="center"> Nationalities </h3>
+<ul class="list-group list-group-flush" id="countries">
+    {% for c in countries %}
+    <li class="list-group-item"> {{ c.country.title() }}
+    </li>
+    {% endfor %}
+</ul>
+</form>
+{% endblock %}
